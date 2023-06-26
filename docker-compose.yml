@@ -2,5 +2,11 @@ version: "3"
 services:
   app:
     build: .
+    command: deno task start
+    # command: deno run --allow-net --allow-read --allow-write --allow-env --allow-run --unstable app.ts
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
     volumes:
       - ./sample-deno:/app
